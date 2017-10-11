@@ -1,0 +1,104 @@
+﻿<Page
+    x:Class="iCare.HandlePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:iCare"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#FFB2DFF3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=" 11*"/>
+            <RowDefinition Height=" 50"/>
+        </Grid.RowDefinitions>
+        <!--1.解决分页-->
+        <Pivot Grid.Row="0" Background="White" Margin="8">
+            <PivotItem Header="解决中" >
+                <ListView x:ConnectionId='7' x:Name="HandlingListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height=" 2*"/>
+                                    <RowDefinition Height=" 3*"/>
+                                    <RowDefinition Height=" 1*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="protrait" Grid.Row="0" Grid.Column="0" Source="{Binding PortraitURI}" />
+                                <TextBlock x:Name="userName" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Name}" VerticalAlignment="Center" Margin="5"/>
+                                <TextBlock x:Name="eventTime" Grid.Row="0" Grid.Column="3" Text="{Binding Time}" VerticalAlignment="Center" Margin="5"/>
+                                <TextBlock x:Name="eventDescription" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding Description}" TextWrapping="WrapWholeWords"/>
+                                <TextBlock x:Name="Comment" Grid.Row="2" Grid.Column="0" Text="评论" VerticalAlignment="Center" Margin="5"/>
+                                <TextBlock x:Name="focus" Grid.Row="2" Grid.Column="1" Text="关注" VerticalAlignment="Center" Margin="5"/>
+                                <TextBlock x:Name="state" Grid.Row="2" Grid.Column="3" Text="{Binding State}" VerticalAlignment="Center" Margin="5"/>
+                                <Button Grid.Row="0" Grid.Column="2" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+
+            <PivotItem Header="已解决">
+                <ListView x:ConnectionId='6' x:Name="HandledListView" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height=" 2*"/>
+                                    <RowDefinition Height=" 3*"/>
+                                    <RowDefinition Height=" 1*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image x:Name="protrait" Grid.Row="0" Grid.Column="0" Source="{Binding PortraitURI}" />
+                                <TextBlock x:Name="userName" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Name}" VerticalAlignment="Center" Margin="5"/>
+                                <TextBlock x:Name="eventTime" Grid.Row="0" Grid.Column="3" Text="{Binding Time}" VerticalAlignment="Center" Margin="5"/>
+                                <TextBlock x:Name="eventDescription" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Text="{Binding Description}"  TextWrapping="WrapWholeWords"/>
+                                <TextBlock x:Name="Comment" Grid.Row="2" Grid.Column="0" Text="评论" VerticalAlignment="Center" Margin="5"/>
+                                <TextBlock x:Name="focus" Grid.Row="2" Grid.Column="1" Text="关注" VerticalAlignment="Center" Margin="5"/>
+                                <TextBlock x:Name="state" Grid.Row="2" Grid.Column="3" Text="{Binding State}" VerticalAlignment="Center" Margin="5"/>
+                                <Button Grid.Row="0" Grid.Column="2" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </PivotItem>
+        </Pivot>
+        <!--2.底部菜单栏-->
+        <Grid Grid.Row="1" Background="White" Margin="2" AutomationProperties.SizeOfSet="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:ConnectionId='1' x:Name="HomeBtn" Grid.Column ="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White"                      >
+                <SymbolIcon Margin="0" Symbol="Home" />
+            </Button>
+            <Button x:ConnectionId='2' x:Name="FindBtn" Grid.Column ="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="White"                      >
+                <SymbolIcon Symbol="World"/>
+            </Button>
+            <Button x:ConnectionId='3' x:Name="AddBtn" Grid.Column ="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White"                     >
+                <SymbolIcon Symbol="Add"/>
+            </Button>
+            <Button x:ConnectionId='4' x:Name="HandleBtn" Grid.Column ="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
+                <SymbolIcon Symbol="Flag"/>
+            </Button>
+            <Button x:ConnectionId='5' x:Name="UserBtn" Grid.Column ="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White"                      >
+                <SymbolIcon Symbol="Contact"/>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>
+

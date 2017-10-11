@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+  <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta charset="utf-8" />
+      <title>Matt's Webview Content Page</title>
+      <script lang="en-us" type="text/javascript">
+          function TimeUpdate() {
+              var TimeTextbox = document.getElementById("TheTime");
+              TimeTextbox.value = new Date().toTimeString();
+         }
+     </script>
+ </head>
+ <body>
+     <h2>Matt's Webview Content Page</h2>
+     <h5>The current time is: <input type="text" id="TheTime" /> </h5>
+     <button onclick="TimeUpdate()">Update the time!</button>
+ </body>
+ </html>

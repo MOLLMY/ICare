@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="iCare.NavigatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:iCare"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#FFB2DFF3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=" 1*"/>
+            <RowDefinition Height=" 10*"/>
+            <RowDefinition Height=" 1*"/>
+        </Grid.RowDefinitions>
+        <!--1.取消按钮，与页面头-->
+        <Grid Grid.Row="0" Background="White" Margin="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="9*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CancelBtn" Grid.Column ="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" Click="CancelBtn_Click">
+                <SymbolIcon Margin="0" Symbol="Cancel" />
+            </Button>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="10,2,2,2"  Text="显示导航信息" FontSize="20"/>
+        </Grid>
+        <!--使用WebView控件，注意路径问题-->
+        <WebView x:Name="NavigateWebView"  Grid.Row="1" Source="ms-appx-web:///Map/Navigate.html"/>
+        <!--3.添加图片，定位按钮-->
+        <Grid Grid.Row="2" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button  x:Name="LocateBtn" Grid.Column ="0" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Background="White" Click="LocateBtn_Click">
+                <SymbolIcon Margin="0" Symbol="MapPin" />
+            </Button>
+            <Button x:Name="SearchLineBtn" Grid.Column ="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="White" Click="SearchLineBtn_Click">
+                <SymbolIcon Margin="0" Symbol="Zoom" />
+            </Button>
+        </Grid>
+    </Grid>
+</Page>
